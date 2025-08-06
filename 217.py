@@ -1,0 +1,14 @@
+# 217. Contains Duplicate
+# https://leetcode.com/problems/contains-duplicate/description/
+
+from typing import List
+
+
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        hashset = set()
+        for num in nums:
+            if num in hashset:
+                return True
+            hashset.add(num)
+        return False
