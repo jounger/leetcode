@@ -31,3 +31,21 @@ class Solution:
                 case "/":
                     stack.append(int(left / right))
         return stack[0]
+
+
+class Solution2:
+    def evalRPN(self, tokens: List[str]) -> int:
+        operators = {
+            "+": lambda x, y: y + x,
+            "-": lambda x, y: y - x,
+            "*": lambda x, y: y * x,
+            "/": lambda x, y: int(y / x),
+        }
+
+        stack = []
+        for token in tokens:
+            if token in operators:
+                stack.append(operators[token](stack.pop(), stack.pop()))
+            else:
+                stack.append(int(token))
+        return stack[0]
