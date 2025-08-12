@@ -25,3 +25,15 @@ class Solution:
                 continue
             return [i+1, found+1]
         raise ValueError("Not found")
+
+
+class Solution2:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        hashmap = dict()
+        for i, num in enumerate(numbers):
+            find = target - num
+            if find in hashmap:
+                return [hashmap[find]+1, i+1]
+            if num not in hashmap:
+                hashmap[num] = i
+        raise ValueError("Not found")
