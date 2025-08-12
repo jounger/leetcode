@@ -37,3 +37,18 @@ class Solution2:
             if num not in hashmap:
                 hashmap[num] = i
         raise ValueError("Not found")
+
+
+class Solution3:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        i = 0
+        j = len(numbers) - 1
+        while i < j:
+            result = target - (numbers[i] + numbers[j])
+            if result == 0:
+                break
+            if result < 0:
+                j -= 1
+            else:
+                i += 1
+        return [i+1, j+1]
